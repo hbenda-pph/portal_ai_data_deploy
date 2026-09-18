@@ -79,7 +79,7 @@ enriched AS (
     c.agent_name,
     c.campaign_id,
     cmp.name AS campaign_name,
-    cmp.category_name AS campaign_category,
+    cmp.category.name AS campaign_category,
     c.business_unit_id,
     bu.name AS business_unit_name,
     j.job_id,
