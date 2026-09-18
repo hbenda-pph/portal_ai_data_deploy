@@ -6,7 +6,7 @@ module.exports = (companyId, projectId, rawDataset) =>
     schema: "gold",
     description: "CSR conversion performance, booking rates, lost opportunities and handling scores aggregated by agent",
     tags: ["gold", "call_intelligence", "vw_csr_performance"],
-    dependencies: [`${projectId}.gold.fc_call_intelligence`]
+    dependencies: [`${projectId}.gold.vw_call_intelligence`]
   })
     .query(`
   SELECT
@@ -23,7 +23,7 @@ module.exports = (companyId, projectId, rawDataset) =>
     ROUND(AVG(f.csr_handling_score), 2) AS avg_csr_handling_score,
     COUNTIF(f.price_resistance = TRUE) AS price_resistance_calls_count,
     COUNTIF(f.competitor_mentioned = TRUE) AS competitor_mentioned_calls_count
-  FROM \`${projectId}.gold.fc_call_intelligence\` f
+  FROM \`${projectId}.gold.vw_call_intelligence\` f
   WHERE f.agent_name IS NOT NULL
   GROUP BY f.company_id, csr_name, f.agent_id
 `);

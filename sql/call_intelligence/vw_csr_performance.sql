@@ -19,7 +19,7 @@ SELECT
   ROUND(AVG(f.csr_handling_score), 2) AS avg_csr_handling_score,
   COUNTIF(f.price_resistance = TRUE) AS price_resistance_calls_count,
   COUNTIF(f.competitor_mentioned = TRUE) AS competitor_mentioned_calls_count
-FROM `shape-mhs-1.gold.fc_call_intelligence` f
+FROM `shape-mhs-1.gold.vw_call_intelligence` f
 WHERE f.agent_name IS NOT NULL
 GROUP BY f.company_id, csr_name, f.agent_id;
 

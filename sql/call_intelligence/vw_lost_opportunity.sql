@@ -67,7 +67,7 @@ SELECT
   
   f.ai_model_version,
   f.transcribed_at
-FROM `shape-mhs-1.gold.fc_call_intelligence` f
+FROM `shape-mhs-1.gold.vw_call_intelligence` f
 WHERE f.is_lost_bookable = TRUE
   AND f.job_id IS NULL
   AND f.customer_phone IS NOT NULL;

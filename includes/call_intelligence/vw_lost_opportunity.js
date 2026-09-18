@@ -6,7 +6,7 @@ module.exports = (companyId, projectId, rawDataset) =>
     schema: "gold",
     description: "Actionable lost opportunity recovery queue with operational prioritization and recommended sales pitch",
     tags: ["gold", "call_intelligence", "vw_lost_opportunity"],
-    dependencies: [`${projectId}.gold.fc_call_intelligence`]
+    dependencies: [`${projectId}.gold.vw_call_intelligence`]
   })
     .query(`
   SELECT
@@ -71,7 +71,7 @@ module.exports = (companyId, projectId, rawDataset) =>
     
     f.ai_model_version,
     f.transcribed_at
-  FROM \`${projectId}.gold.fc_call_intelligence\` f
+  FROM \`${projectId}.gold.vw_call_intelligence\` f
   WHERE f.is_lost_bookable = TRUE
     AND f.job_id IS NULL
     AND f.customer_phone IS NOT NULL
